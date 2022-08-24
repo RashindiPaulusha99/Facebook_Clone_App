@@ -8,7 +8,7 @@ app.use(express.json())
 
 router.get('/:email/:password',async (req, res) =>{
     try {
-        const register = await CreateAccount.find(req.params.get(email))
+        const register = await CreateAccount.findOne({ email: req.params.email, password: req.params.password })
         res.json(register)
     }catch (error) {
         res.send('Error : '+error)
