@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const createAccount = require('./routes/createAccount')
+const login = require('./routes/login')
 
 const app=express()
 const port = 4001
@@ -15,6 +16,9 @@ con.on("open", () => {
 })
 
 app.use(express.json())
+
+app.use('/createAccount', createAccount)
+app.use('/login', login)
 
 /*app.get('/',(req,res)=>{
     console.log('get request coming.');

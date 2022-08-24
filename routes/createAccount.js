@@ -25,7 +25,7 @@ router.get('/:id',async (req, res) =>{
 })
 
 router.post('/',async (req,res) => {
-    const register = new CreateAccount({
+    const createAccount = new CreateAccount({
         firstName:req.body.firstName,
         surname:req.body.surname,
         gender:req.body.gender,
@@ -36,7 +36,7 @@ router.post('/',async (req,res) => {
     })
 
     try {
-        const register = await register.save()
+        const register = await createAccount.save()
         res.json(register)
     }catch (error) {
         res.send('Error : '+error)
@@ -44,7 +44,7 @@ router.post('/',async (req,res) => {
 
 })
 
-router.put('/',async (req,res) =>{
+router.put('/:id',async (req,res) =>{
     try {
         const register = await CreateAccount.findById(req.params.id)
         register.firstName = req.body.firstName
