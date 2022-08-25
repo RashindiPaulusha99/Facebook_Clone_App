@@ -15,6 +15,15 @@ router.get('/',async (req, res) =>{
     }
 })
 
+router.get('/:id',async (req, res) =>{
+    try {
+        const post = await Posts.findById(req.params.id)
+        res.json(post)
+    }catch (error) {
+        res.send('Error : '+error)
+    }
+})
+
 router.get('/:userId',async (req, res) =>{
     try {
         const posts = await Posts.find({ userId: req.params.userId })

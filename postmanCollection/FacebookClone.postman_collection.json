@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "5b459c33-b770-42c2-89b4-42849d489b6e",
+		"name": "FacebookClone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "save user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"bihara\",\r\n    \"surname\":\"methmini\",\r\n    \"gender\":\"female\",\r\n    \"dateOfBirth\":\"1999.05.06\",\r\n    \"password\":\"bihara234\",\r\n    \"phoneNumber\":787991075,\r\n    \"email\":\"bihara@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"rashindi\",\r\n    \"surname\":\"paulusha\",\r\n    \"gender\":\"female\",\r\n    \"dateOfBirth\":\"1999.02.06\",\r\n    \"password\":\"pau1234\",\r\n    \"phoneNumber\":787991075,\r\n    \"email\":\"rash@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/user/rash@gmail.com/pau1234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"user",
+								"rash@gmail.com",
+								"pau1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4001/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4001/user/6307835d382934f251305ceb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"user",
+								"6307835d382934f251305ceb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4001/user/63078205a3d639d06ebdda0f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"user",
+								"63078205a3d639d06ebdda0f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"_id\": \"6307835d382934f251305ceb\",\r\n        \"firstName\": \"bihara\",\r\n        \"surname\": \"methmini\",\r\n        \"gender\": \"female\",\r\n        \"dateOfBirth\": \"1999.05.06\",\r\n        \"password\": \"bihara234\",\r\n        \"phoneNumber\": 787991075,\r\n        \"email\": \"biha@gmail.com\",\r\n        \"__v\": 0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/user/6307835d382934f251305ceb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"user",
+								"6307835d382934f251305ceb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "save posts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\":\"63060c6fd1db042da4c762c8\",\r\n  \"date\":\"2022.02.25\", \r\n  \"time\":\"10.20\", \r\n  \"title\":\"title two\", \r\n  \"body\":\"how are you\"  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch user posts by userId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4001/posts/63060c6fd1db042da4c762c8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"posts",
+								"63060c6fd1db042da4c762c8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"_id\": \"63072b5cded74f8ddf6757e9\",\r\n        \"userId\": \"63060c6fd1db042da4c762c8\",\r\n        \"date\": \"2022-02-11T18:30:00.000Z\",\r\n        \"time\": \"12.13\",\r\n        \"title\": \"title one\",\r\n        \"body\": \"hii\",\r\n        \"__v\": 0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/posts/63072b5cded74f8ddf6757e9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"posts",
+								"63072b5cded74f8ddf6757e9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\":\"63060c6fd1db042da4c762c8\",\r\n  \"date\":\"2022.02.27\", \r\n  \"time\":\"11.20\", \r\n  \"title\":\"title three\", \r\n  \"body\":\"bye\"  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/posts/63077e48bd34cce2a81f9060",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"posts",
+								"63077e48bd34cce2a81f9060"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4001/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4001/posts/63072b5cded74f8ddf6757e9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"posts",
+								"63072b5cded74f8ddf6757e9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
