@@ -2,13 +2,13 @@ const express = require('express')
 const app = express()
 const router = express.Router()
 
-const CreateAccount = require('../models/createAccount.models')
+const User = require('../models/user.models')
 
 app.use(express.json())
 
 router.get('/',async (req, res) =>{
     try {
-        const register = await CreateAccount.find()
+        const register = await User.find()
         res.json(register)
     }catch (error) {
         res.send('Error : '+error)
@@ -17,7 +17,16 @@ router.get('/',async (req, res) =>{
 
 router.get('/:id',async (req, res) =>{
     try {
-        const register = await CreateAccount.findById(req.params.id)
+        const register = await User.findById(req.params.id)
+        res.json(register)
+    }catch (error) {
+        res.send('Error : '+error)
+    }
+})
+
+router.get('/:email/:password',async (req, res) =>{
+    try {
+        const register = await User.findOne({ email: req.params.email, password: req.params.password })
         res.json(register)
     }catch (error) {
         res.send('Error : '+error)
@@ -25,7 +34,7 @@ router.get('/:id',async (req, res) =>{
 })
 
 router.post('/',async (req,res) => {
-    const createAccount = new CreateAccount({
+    const user = new User({
         firstName:req.body.firstName,
         surname:req.body.surname,
         gender:req.body.gender,
@@ -36,7 +45,7 @@ router.post('/',async (req,res) => {
     })
 
     try {
-        const register = await createAccount.save()
+        const register = await user.save()
         res.json(register)
     }catch (error) {
         res.send('Error : '+error)
@@ -46,7 +55,7 @@ router.post('/',async (req,res) => {
 
 router.put('/:id',async (req,res) =>{
     try {
-        const register = await CreateAccount.findById(req.params.id)
+        const register = await User.findById(req.params.id)
         register.firstName = req.body.firstName
         register.surname = req.body.surname
         register.gender = req.body.gender
@@ -64,7 +73,7 @@ router.put('/:id',async (req,res) =>{
 
 router.delete('/:id',async (req,res) =>{
     try {
-        const register = await CreateAccount.findById(req.params.id)
+        const register = await User.findById(req.params.id)
         const response = await register.remove()
         res.json(response)
     }catch (error) {

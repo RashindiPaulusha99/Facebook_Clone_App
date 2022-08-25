@@ -1,7 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const createAccount = require('./routes/createAccount')
-const login = require('./routes/login')
+const user = require('./routes/user')
 const posts = require('./routes/posts')
 
 const app=express()
@@ -18,8 +17,7 @@ con.on("open", () => {
 
 app.use(express.json())
 
-app.use('/createAccount', createAccount)
-app.use('/login', login)
+app.use('/user', user)
 app.use('/posts', posts)
 
 app.listen(port, () => {
