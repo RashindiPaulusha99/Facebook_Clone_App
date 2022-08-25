@@ -15,14 +15,10 @@ router.get('/',async (req, res) =>{
     }
 })
 
-router.get('/:id',async (req, res) =>{
+router.get('/:userId',async (req, res) =>{
     try {
-        const posts = await Posts.findById(req.params.id)
-        var items = []
-        for(var i = req.body.items.length - 1; i >= 0; i --) {
-            items.push({ quantity:  req.body.quantity[i], item: req.body.items[i] })
-        }
-        entry.items = items
+        const posts = await Posts.find({ userId: req.params.userId })
+
         res.json(posts)
     }catch (error) {
         res.send('Error : '+error)
@@ -32,7 +28,7 @@ router.get('/:id',async (req, res) =>{
 router.post('/',async (req,res) => {
     const posts = new Posts({
         userId:req.body.userId,
-        date:req.body.data,
+        date:req.body.date,
         time:req.body.time,
         title:req.body.title,
         body:req.body.body
