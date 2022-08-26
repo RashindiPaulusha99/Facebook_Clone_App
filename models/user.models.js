@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const createAccountSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     firstName:{
         type:String,
         required:true
@@ -31,4 +31,4 @@ const createAccountSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('CreateAccount',createAccountSchema)
+module.exports = mongoose.model('User',userSchema)
