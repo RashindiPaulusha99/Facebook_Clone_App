@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express()
 const router = express.Router()
-
+const bodyParser = require('body-parser');
 const Posts = require('../models/posts.models')
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
 router.get('/',async (req, res) =>{
@@ -45,7 +46,8 @@ router.post('/',async (req,res) => {
 
     try {
         const post = await posts.save()
-        res.json(post)
+        res.send(post)
+        //res.json(post)
     }catch (error) {
         res.send('Error : '+error)
     }
